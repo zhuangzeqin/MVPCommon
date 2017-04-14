@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt' //dagger2
+apply plugin: 'android-apt'
+//apply plugin: 'com.android.library'//butterKnife
+//apply plugin: 'com.android.library'
+//apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId "com.eeepay.cn.mvp.demo"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //dagger2
+    lintOptions {
+        warning 'InvalidPackage'
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //        exclude group: 'com.android.support', module: 'support-annotations'
+    //    })
+    /* 解析*/
+    compile 'com.google.code.gson:gson:2.8.0'
+    // dagger2 依赖部分
+//    apt 'com.google.dagger:dagger-compiler:2.2'
+//    provided 'org.glassfish:javax.annotation:10.0-b28'
+//    compile 'com.google.dagger:dagger:2.2'
+    //end
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha9'
+    //   retrofit2.2
+    //    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    //    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    /*retrofit*/
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    /*retrofit使用rxjava方法*/
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
+    /*rxjava rxandroid*/
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.2.1'
+    //ok3.3.1
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+
+    //butterknife 8.5.1
+    //    compile 'com.jakewharton:butterknife:8.5.1'
+    //    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    /* 控件注解*/
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    //    compile 'com.android.support:support-v4:25.2.0'
+    testCompile 'junit:junit:4.12'
+}
