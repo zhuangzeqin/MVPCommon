@@ -4,6 +4,8 @@ apply plugin: 'android-apt'
 //apply plugin: 'com.android.library'//butterKnife
 //apply plugin: 'com.android.library'
 //apply plugin: 'com.jakewharton.butterknife'
+//tinypng 图片压缩工具
+apply plugin: 'com.waynell.tinypng'
 
 android {
     compileSdkVersion 25
@@ -26,6 +28,24 @@ android {
     //dagger2
     lintOptions {
         warning 'InvalidPackage'
+    }
+
+
+    tinyInfo {
+        resourceDir = [
+                // 你的资源目录
+                "app/src/main/res",
+                "lib/src/main/res"
+        ]
+        resourcePattern = [
+                // 你的资源文件夹
+                "drawable[a-z-]*",
+                "mipmap[a-z-]*"
+        ]
+        whiteList = [
+                // 在这里添加文件白名单，支持正则表达式
+        ]
+        apiKey = 'your tiny API key'
     }
 
 }

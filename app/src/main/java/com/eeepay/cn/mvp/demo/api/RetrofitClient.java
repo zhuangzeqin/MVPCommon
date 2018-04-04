@@ -29,12 +29,12 @@ public class RetrofitClient {
     /**
      * 请求的Baseurl
      **/
-    private final static String BASEURL = GitServiceApi.BASEURL;
+    private final static String BASEURL = RetrofitServiceApi.BASEURL;
     /**
      * 默认的超时时间；10s
      **/
     private static final int DEFAULT_TIMEOUT = 10;
-    private GitServiceApi mGitServiceApi = null;
+    private RetrofitServiceApi mGitServiceApi = null;
 
     private RetrofitClient() {
     }
@@ -79,7 +79,7 @@ public class RetrofitClient {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//rxjava 适配器
                 .baseUrl(baseUrl)//设置baseurl
                 .build();
-        mGitServiceApi = retrofit.create(GitServiceApi.class);//创建api
+        mGitServiceApi = retrofit.create(RetrofitServiceApi.class);//创建api
     }
 
     /**
@@ -104,7 +104,7 @@ public class RetrofitClient {
      *
      * @return
      */
-    public GitServiceApi getGitHubApi() {
+    public RetrofitServiceApi getRetrofitServiceInstance() {
         return mGitServiceApi;
     }
 

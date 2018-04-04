@@ -12,6 +12,8 @@ buildscript {
         // in the individual module build.gradle files
         //butterknife 最新版本是8.5.1
 //        classpath 'com.jakewharton:butterknife-gradle-plugin:8.5.1'
+        //tinypng 图片压缩工具
+        classpath 'com.waynell.tinypng:TinyPngPlugin:1.0.5'
     }
 }
 

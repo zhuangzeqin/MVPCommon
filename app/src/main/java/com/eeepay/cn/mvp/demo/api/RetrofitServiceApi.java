@@ -31,7 +31,7 @@ import rx.Observable;
  * 时间: 2017/3/20-17:08
  * 邮箱：zzq@eeepay.cn
  */
-public interface GitServiceApi {
+public interface RetrofitServiceApi {
     String BASEURL = "https://api.github.com/";
 
     @GET("repos/{owner}/{repo}/contributors")

@@ -2,7 +2,7 @@ package com.eeepay.cn.mvp.demo.model;
 
 import android.support.annotation.NonNull;
 
-import com.eeepay.cn.mvp.demo.api.GitServiceApi;
+import com.eeepay.cn.mvp.demo.api.RetrofitServiceApi;
 import com.eeepay.cn.mvp.demo.api.RetrofitClient;
 
 import rx.Observable;
@@ -16,14 +16,14 @@ import rx.schedulers.Schedulers;
  * 邮箱：zzq@eeepay.cn
  */
 public abstract class BaseModel<T> extends BaseSubscriber<T> {
-    protected GitServiceApi mGitServiceApi;//提供获取API的接口实现类
+    protected RetrofitServiceApi mGitServiceApi;//提供获取API的接口实现类
     protected ResultCallBack mResultCallBack;//接口的回调
 
     /**
      * 外部调用者必先实现的改监听接口
      **/
     public BaseModel() {
-        mGitServiceApi = RetrofitClient.getInstance().getGitHubApi();
+        mGitServiceApi = RetrofitClient.getInstance().getRetrofitServiceInstance();
     }
 
     /**
